@@ -11,6 +11,8 @@ gem 'yaml_db'
 
 gem 'mysql2'
 
+gem 'foreigner'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

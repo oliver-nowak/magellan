@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  current_time: 2014-06-08 11:29:11
+  data_time: 2014-06-08 11:29:11
+  cached_until: 2014-06-08 11:29:11
+  solar_system_id: 1
+  ship_jumps: 1
+  eve_api: 1
+
+two:
+  current_time: 2014-06-08 11:29:11
+  data_time: 2014-06-08 11:29:11
+  cached_until: 2014-06-08 11:29:11
+  solar_system_id: 1
+  ship_jumps: 1
+  eve_api: 1

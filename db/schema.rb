@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20140608160937) do
 
   create_table "agtAgentTypes", :primary_key => "agentTypeID", :force => true do |t|
     t.string "agentType", :limit => 50
@@ -443,6 +443,14 @@ ActiveRecord::Schema.define(:version => 0) do
   add_index "invuniquenames", ["groupID", "itemName"], :name => "invUniqueNames_IX_GroupName"
   add_index "invuniquenames", ["itemName"], :name => "invUniqueNames_UQ", :unique => true
 
+  create_table "jumps", :force => true do |t|
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "system_id",                 :null => false
+    t.integer  "ship_jumps", :default => 0, :null => false
+    t.integer  "eve_api"
+  end
+
   create_table "mapCelestialStatistics", :primary_key => "celestialID", :force => true do |t|
     t.float   "temperature"
     t.text    "spectralClass",  :limit => 2147483647
@@ -594,9 +602,11 @@ ActiveRecord::Schema.define(:version => 0) do
     t.float   "radius"
     t.integer "sunTypeID"
     t.text    "securityClass",   :limit => 2147483647
+    t.integer "jump_id"
   end
 
   add_index "mapsolarsystems", ["constellationID"], :name => "mapSolarSystems_IX_constellation"
+  add_index "mapsolarsystems", ["jump_id"], :name => "mapSolarSystems_jump_id_fk"
   add_index "mapsolarsystems", ["regionID"], :name => "mapSolarSystems_IX_region"
   add_index "mapsolarsystems", ["security"], :name => "mapSolarSystems_IX_security"
 
@@ -815,5 +825,7 @@ ActiveRecord::Schema.define(:version => 0) do
     t.integer "centerSystemID"
     t.string  "description",    :limit => 500
   end
+
+  add_foreign_key "mapSolarSystems", "jumps", :name => "mapSolarSystems_jump_id_fk", :dependent => :delete
 
 end
