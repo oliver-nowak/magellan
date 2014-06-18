@@ -1,0 +1,34 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a id='lnkCore' class="navbar-brand" href="/core/index">Magellan</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li id='lnkExpeditions' class='active'><a   href="/expeditions/index">Expeditions</a></li>
+        <li id='lnkColonies'><a  href="/colonies/index">Colonies</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var url = window.location;
+        $('.navbar .nav').find('.active').removeClass('active');
+        $('.navbar .nav li a').each(function () {
+            if (this.href == url) {
+                $(this).parent().addClass('active');
+            }
+        });
+    });
+</script>
