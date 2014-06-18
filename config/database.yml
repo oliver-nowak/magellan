@@ -4,17 +4,17 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 development:
- adapter: sqlite3
- database: db/universeDataDx.db
- pool: 5
- timeout: 5000
-#  adapter: mysql2
-#  encoding: utf8
-#  database: <%= ENV['EVE_DB_NAME'] %>
-#  pool: 5
-#  username: <%= ENV['EVE_USER_NAME'] %>
-#  password: <%= ENV['EVE_PASS_WORD'] %>
-#  socket: /tmp/mysql.sock
+# adapter: sqlite3
+# database: db/universeDataDx.db
+# pool: 5
+# timeout: 5000
+  adapter: mysql2
+  encoding: utf8
+  database: <%= ENV['EVE_DB_NAME'] %>
+  pool: 5
+  username: <%= ENV['EVE_USER_NAME'] %>
+  password: <%= ENV['EVE_PASS_WORD'] %>
+  socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
