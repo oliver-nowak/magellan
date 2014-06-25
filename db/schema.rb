@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140608160937) do
+ActiveRecord::Schema.define(:version => 20140608152911) do
 
   create_table "agtAgentTypes", :primary_key => "agentTypeID", :force => true do |t|
     t.string "agentType", :limit => 50
@@ -602,11 +602,9 @@ ActiveRecord::Schema.define(:version => 20140608160937) do
     t.float   "radius"
     t.integer "sunTypeID"
     t.text    "securityClass",   :limit => 2147483647
-    t.integer "jump_id"
   end
 
   add_index "mapsolarsystems", ["constellationID"], :name => "mapSolarSystems_IX_constellation"
-  add_index "mapsolarsystems", ["jump_id"], :name => "mapSolarSystems_jump_id_fk"
   add_index "mapsolarsystems", ["regionID"], :name => "mapSolarSystems_IX_region"
   add_index "mapsolarsystems", ["security"], :name => "mapSolarSystems_IX_security"
 
@@ -825,7 +823,5 @@ ActiveRecord::Schema.define(:version => 20140608160937) do
     t.integer "centerSystemID"
     t.string  "description",    :limit => 500
   end
-
-  add_foreign_key "mapSolarSystems", "jumps", :name => "mapSolarSystems_jump_id_fk", :dependent => :delete
 
 end
