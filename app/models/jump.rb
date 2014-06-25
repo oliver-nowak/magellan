@@ -4,5 +4,6 @@ class Jump < ActiveRecord::Base
                   :current_time,
                   :data_time,
                   :eve_api,
-                  :ship_jumps
+                  :ship_jumps,
+                  :system_id
 end
