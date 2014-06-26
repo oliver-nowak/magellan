@@ -20,7 +20,4 @@ class KillService < DataService
 
         }
     end
-
-
-
 end
