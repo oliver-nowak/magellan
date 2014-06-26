@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140625211453) do
+ActiveRecord::Schema.define(:version => 20140626170903) do
 
   create_table "agtAgentTypes", :primary_key => "agentTypeID", :force => true do |t|
     t.string "agentType", :limit => 50
@@ -444,8 +444,8 @@ ActiveRecord::Schema.define(:version => 20140625211453) do
   add_index "invuniquenames", ["itemName"], :name => "invUniqueNames_UQ", :unique => true
 
   create_table "jumps", :force => true do |t|
-    t.string   "current_time"
-    t.string   "data_time"
+    t.string   "current_time",                :null => false
+    t.string   "data_time",                   :null => false
     t.string   "cached_until",                :null => false
     t.integer  "system_id",                   :null => false
     t.integer  "ship_jumps",   :default => 0, :null => false
@@ -454,7 +454,18 @@ ActiveRecord::Schema.define(:version => 20140625211453) do
     t.datetime "updated_at",                  :null => false
   end
 
-  add_index "jumps", ["system_id"], :name => "index_jumps_on_system_id"
+  create_table "kills", :force => true do |t|
+    t.string   "current_time",                :null => false
+    t.string   "data_time",                   :null => false
+    t.string   "cached_until",                :null => false
+    t.integer  "system_id",                   :null => false
+    t.integer  "ship"
+    t.integer  "faction"
+    t.integer  "pod"
+    t.integer  "eve_api",      :default => 0
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
+  end
 
   create_table "mapCelestialStatistics", :primary_key => "celestialID", :force => true do |t|
     t.float   "temperature"
